@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import ReactAnimatedWeather from "react-animated-weather";
 import "./Weather.css";
 
 export default function Weather() {
@@ -42,8 +41,6 @@ export default function Weather() {
         <input type="submit" value="Search" />
       </form>
       <h4>{message}</h4>
-      
-      
     </div>
   );
 }

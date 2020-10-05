@@ -41,6 +41,31 @@ export default function Weather() {
         <input type="submit" value="Search" />
       </form>
       <h4>{message}</h4>
+      <main>
+        <div className="row">
+          <div className="col-6">
+            <div className="box1">
+              <ul>
+                <li className="city">Atlanta</li>
+                <li className="date">10/02</li>
+                <li className="description">sunny</li>
+                <img
+                  src={` http://openweathermap.org/img/wn/&icon@2x.png`}
+                  alt="weather"
+                ></img>
+                <li className="temperature">25°C</li>
+              </ul>
+            </div>
+          </div>
+          <div className="col-6">
+            <ul>
+              <li>Humidity: 10%</li>
+              <li>Wind:</li>
+              <li>Max/Min</li>
+            </ul>
+          </div>
+        </div>
+      </main>
     </div>
   );
 }

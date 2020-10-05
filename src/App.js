@@ -6,13 +6,13 @@ import Weather from "./Weather";
 function App() {
   return (
     <div className="App">
-      <header className="header">
-        <div>
-          <Weather />
-        </div>
-      </header>
-      <main>
-        <div className="container">
+      <div className="container">
+        <header className="header">
+          <div>
+            <Weather />
+          </div>
+        </header>
+        <main>
           <div className="row">
             <div className="col-6">
               <div className="box1">
@@ -36,8 +36,8 @@ function App() {
               </ul>
             </div>
           </div>
-        </div>
       </main>
+     </div>
 
       <footer>
         <div className="footer">

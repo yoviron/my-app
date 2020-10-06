@@ -3,32 +3,12 @@ import axios from "axios";
 import "./Weather.css";
 
 export default function Weather() {
-  const [city, setCity] = useState(null);
-  
-  function handleSubmit(event) {
-    event.preventDefault();
-
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=3e050f75e6d0f064cfedf4c3fb91df60&units=metric`;
-
-    axios.get(url).then(getWeather);
-  }
-
-  function getCity(event) {
-    event.preventDefault();
-    setCity(event.target.value);
-  }
-
-  function getWeather(response) {
-    
-    
-    
-  }
-
+ 
   return (
     <div className="weather">
       <h2>Tuesday, October 6</h2>
       
-        <form onSubmit={handleSubmit}>
+        <form >
           <div className="row">
             <div className="col-9">
              <input 

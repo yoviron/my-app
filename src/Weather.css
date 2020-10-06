@@ -1,8 +1,74 @@
+
+div.container {
+    max-width: 800px;
+}
+
+
+
 .weather {
-    width: 1024px;
-    height: 900px;
+    flex-wrap: wrap;
+    padding: 16px;
+    margin: 30px auto;
+    max-width: 800px;
+    border: 1px solid gray;
+    border-radius: 4px;
     
+   
+}
+h2 {
+    text-align: center;
+}
+.city {
+    text-align: center;
+    font-size: 50px;
+}
+
+main.condition {
+    margin: 0;
+    
+}
+
+.city,.description,.time,.humidity,.wind,.min {
+    padding-bottom: 25px;
+}
 
 
+.temperature {
+    font-size: 50px;
+}
+.units {
+    font-size: 15px;
+    position: relative;
+    top: -33px;
+
     
+    
+}
+
+ul {
+    text-align: center;
+}
+li {
+    
+    list-style: none;
+}
+ul.box2 {
+    margin-top: 100px;
+}
+img {
+    margin-bottom: 25px;
+}
+ul.left {
+    margin-top: 20px;
+    text-align: left;
+    padding-bottom: 0;
+    margin-left: 30px;
+    padding-inline-start: 0;
+    
+}
+ul.forecast li {
+   padding-bottom: 20px;
+}
+p {
+    font-size: 10px;
 }

@@ -4,8 +4,7 @@ import "./Weather.css";
 
 export default function Weather() {
   const [city, setCity] = useState(null);
-  const [message, setMessage] = useState(null);
-
+  
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -20,50 +19,79 @@ export default function Weather() {
   }
 
   function getWeather(response) {
-    setMessage(
-      <ul>
-        <li>temperature: {Math.round(response.data.main.temp)}°C</li>
-        <li>description: {response.data.weather[0].description}</li>
-        <li>humidity: {response.data.main.humidity} %</li>
-        <li>wind: {Math.round(response.data.wind)} km/h</li>
-        <img
-          src={` http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`}
-          alt="weather"
-        />
-      </ul>
-    );
+    
+    
+    
   }
 
   return (
-    <div>
-      <div className="heather">
+    <div className="weather">
+      <h2>Tuesday, October 6</h2>
+      
         <form onSubmit={handleSubmit}>
-          <input type="search" placeholder="Enter a city" onChange={getCity} />
-          <input type="submit" value="Search" />
-        </form>
-        <h4>{message}</h4>
-      </div>
-      <main className="weather">
-        <div className="row">
-          <div className="col-6">
-            <div className="box1">
-              <ul>
-                <li className="city">Atlanta</li>
-                <li className="date">10/02</li>
-                <li className="description">sunny</li>
-                <img
-                  src={` http://openweathermap.org/img/wn/&icon@2x.png`}
-                  alt="weather"
-                ></img>
-                <li className="temperature">25°C</li>
-              </ul>
-            </div>
+          <div className="row">
+            <div className="col-9">
+             <input 
+             type="search" 
+             placeholder="Enter a city"
+             className="form-control"/>
+               
+             </div>
+             <div className="col-3">
+             <input 
+             className="btn-btn-primary" 
+             type="submit" 
+             value="Search" />
+             </div>
           </div>
-          <div className="col-6">
-            <ul>
-              <li>Humidity: 10%</li>
-              <li>Wind:</li>
-              <li>Max/Min</li>
+        </form>
+        
+      
+      <main className="condition">
+        <div className="row">
+          <div className="col-4">
+            <ul className="left">
+              <li className="city">Atlanta</li>
+              <li className="time">10:02</li>
+              <li className="description">sunny</li>
+              <li className="humidity">Humidity: 10%</li>
+              <li className="wind">Wind:</li>
+              <li className="min">Max/Min</li>
+            </ul>
+          </div>
+          <div className="col-4">
+            <ul className="box2">
+          <img
+            src={` http://openweathermap.org/img/wn/&icon@2x.png`}
+            alt="weather">
+          </img>
+          <li className="temperature">
+            25
+            <span className="units">°C | F</span>
+          </li>
+          </ul>
+          </div>
+          <div className="col-4">
+            <ul className="forecast">
+              <h3>6-hour forecast</h3>
+              <li>
+                9:00 <img src="" /> sunny 15 
+              </li>
+              <li>
+                12:00 <img src="" /> sunny 15 
+              </li>
+              <li>
+                15:00 <img src="" /> sunny 18 
+              </li>
+              <li>
+                16:00 <img src="" /> sunny 20 
+              </li>
+              <li>
+                19:00 <img src="" /> sunny 17 
+              </li>
+              <li>
+                22:00 <img src="" /> sunny 18 
+              </li>
             </ul>
           </div>
         </div>

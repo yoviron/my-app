@@ -13,13 +13,14 @@ function App() {
           </div>
         
  
-     </div>
+     
 
       <p>
         Coded  by Dani Miller and is
         <a href="https://github.com/yoviron/my-app.git"> open-source</a>
         
       </p>
+      </div>
     </div>
   );
 }

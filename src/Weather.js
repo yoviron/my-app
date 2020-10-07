@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
 
-export default function Weather() {
-  const [ready, setReady] = useState(false);
-  const [weather, setWeather] = useState(null);
+export default function Weather(props) {
+  
+  const [weather, setWeather] = useState({ready: false});
 
   function handleResponse(response) {
     console.log(response.data);
     setWeather ({
+      ready: true,
       temperature: response.data.main.temp,
       description: response.data.weather[0].description,
       preasure: response.data.main.preasure,
@@ -19,9 +20,9 @@ export default function Weather() {
 
 
     });
-    setReady(true);
+    
   }
-  if (ready) {
+  if (weather.ready) {
     return (
       <div className="weather">
         <h2>Tuesday, October 6</h2>

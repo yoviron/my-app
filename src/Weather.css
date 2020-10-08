@@ -1,11 +1,13 @@
 
 div.container {
     max-width: 800px;
+    border-radius: 4px;
 }
 
 
 
 .weather {
+    background-color: lightskyblue;
     flex-wrap: wrap;
     padding: 16px;
     margin: 30px auto;
@@ -14,6 +16,9 @@ div.container {
     border-radius: 4px;
     
    
+}
+h5 {
+    text-align: center;
 }
 h2 {
     text-align: center;
@@ -28,7 +33,7 @@ main.condition {
     
 }
 
-.city,.description,.time,.humidity,.wind,.min {
+.city,.description,.humidity,.wind,.min {
     padding-bottom: 25px;
 }
 
@@ -55,7 +60,7 @@ li {
 ul.box2 {
     margin-top: 100px;
 }
-img {
+.condition.box2 img {
     margin-bottom: 25px;
 }
 ul.left {
@@ -66,9 +71,16 @@ ul.left {
     padding-inline-start: 0;
     
 }
-ul.forecast li {
-   padding-bottom: 20px;
+.forecast  img {
+    padding-bottom: 0;
+    line-height: 20px;
+    font-size: 10px;
+    font-weight: 300px;
+    
+    font-size: 10px;
 }
+
+
 p {
     font-size: 10px;
 }

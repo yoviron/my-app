@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
+import FormatDate from "./FormatDate";
 
 export default function Weather(props) {
   
@@ -16,7 +17,8 @@ export default function Weather(props) {
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
       icon: response.data.weather[0].icon,
-      city: response.data.name
+      city: response.data.name,
+      date: new Date(response.data.dt*1000)
 
 
     });
@@ -25,8 +27,7 @@ export default function Weather(props) {
   if (weather.ready) {
     return (
       <div className="weather">
-        <h2>Tuesday, October 6</h2>
-        
+        <FormatDate date={weather.date}/>
 
         <form>
           <div className="row">
@@ -38,17 +39,16 @@ export default function Weather(props) {
               />
             </div>
             <div className="col-3">
-               <input className="btn btn-primary" type="submit" value="Search" />
+              <input className="btn btn-primary" type="submit" value="Search" />
             </div>
-         </div>
+          </div>
         </form>
 
         <main className="condition">
           <div className="row">
             <div className="col-4">
               <ul className="left">
-                <li className="city">Atlanta</li>
-                <li className="time">10:02</li>
+                <li className="city">{weather.city}</li>
                 <li className="description">{weather.description}</li>
                 <li className="humidity">Humidity:{weather.humidity} %</li>
                 <li className="wind">Wind:{weather.wind}</li>
@@ -71,22 +71,48 @@ export default function Weather(props) {
               <ul className="forecast">
                 <h3>6-hour forecast</h3>
                 <li>
-                  9:00 <img src=""alt="" /> sunny 15
+                  9:00{" "}
+                  <img
+                    src={` http://openweathermap.org/img/wn/10d@2x.png`}
+                    alt="Sunny"
+                  />{" "}
+                  15°
                 </li>
                 <li>
-                  12:00 <img src="" alt="" /> sunny 15
+                  12:00{" "}
+                  <img
+                    src={` http://openweathermap.org/img/wn/10d@2x.png`}
+                    alt="Sunny"
+                  />{" "}
+                  15°
                 </li>
                 <li>
-                  15:00 <img src="" alt="" /> sunny 18
+                  15:00{" "}
+                  <img
+                    src={` http://openweathermap.org/img/wn/10d@2x.png`}
+                    alt="Sunny"
+                  />{" "}
+                  18°
                 </li>
                 <li>
-                  16:00 <img src="" alt="" /> sunny 20
+                  16:00{" "}
+                  <img
+                    src={` http://openweathermap.org/img/wn/10d@2x.png`}
+                    alt="Sunny"
+                  />{" "}
+                  20°
                 </li>
                 <li>
-                  19:00 <img src=""alt="" /> sunny 17
+                  19:00{" "}
+                  <img
+                    src={` http://openweathermap.org/img/wn/10d@2x.png`}
+                    alt="Sunny"
+                  />{" "}
+                   17°
                 </li>
                 <li>
-                  22:00 <img src=""alt="" /> sunny 18
+                  22:00 <img src={` http://openweathermap.org/img/wn/10d@2x.png`}
+                  alt="Sunny"  />  18°
                 </li>
               </ul>
             </div>

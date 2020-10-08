@@ -4,28 +4,28 @@ import "./Weather.css";
 import FormatDate from "./FormatDate";
 
 export default function Weather(props) {
-  const [ready, setReady]= useState(false);
   
-  const [weather, setWeather] = useState({});
+  
+  const [weather, setWeather] = useState({ready:false});
 
   function handleResponse(response) {
     console.log(response.data);
     setWeather({
-      
+      ready: true,
       temperature: response.data.main.temp,
       description: response.data.weather[0].description,
       pressure: response.data.main.pressure,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
-      icon: response.data.weather[0].icon,
+      
       city: response.data.name,
       date: new Date(response.data.dt * 1000),
       iconUrl: " http://openweathermap.org/img/wn/10d@2x.png",
     });
-    setReady(true)
+    
     
   }
-  if (ready) {
+  if (weather.ready) {
     return (
       <div className="weather">
         <FormatDate date={weather.date}/>
@@ -70,7 +70,7 @@ export default function Weather(props) {
             </div>
             <div className="col-4">
               <ul className="forecast">
-                <h3>6-hour forecast</h3>
+                <h4>3-hour forecast</h4>
                 <li>
                   9:00{" "}
                   <img

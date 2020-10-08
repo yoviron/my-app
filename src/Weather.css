@@ -33,8 +33,8 @@ main.condition {
     
 }
 
-.city,.description,.humidity,.wind,.min {
-    padding-bottom: 25px;
+.city,.text-capitalize,.humidity,.wind,.min {
+    padding-bottom: 35px;
 }
 
 

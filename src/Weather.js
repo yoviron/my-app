@@ -4,27 +4,28 @@ import "./Weather.css";
 import FormatDate from "./FormatDate";
 
 export default function Weather(props) {
+  const [ready, setReady]= useState(false);
   
-  const [weather, setWeather] = useState({ready: false});
+  const [weather, setWeather] = useState({});
 
   function handleResponse(response) {
     console.log(response.data);
-    setWeather ({
+    setWeather({
       ready: true,
       temperature: response.data.main.temp,
       description: response.data.weather[0].description,
-      preasure: response.data.main.preasure,
+      pressure: response.data.main.pressure,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
       icon: response.data.weather[0].icon,
       city: response.data.name,
-      date: new Date(response.data.dt*1000)
-
-
+      date: new Date(response.data.dt * 1000),
+      iconUrl: " http://openweathermap.org/img/wn/10d@2x.png",
     });
+    setReady(true)
     
   }
-  if (weather.ready) {
+  if (ready) {
     return (
       <div className="weather">
         <FormatDate date={weather.date}/>
@@ -49,17 +50,17 @@ export default function Weather(props) {
             <div className="col-4">
               <ul className="left">
                 <li className="city">{weather.city}</li>
-                <li className="description">{weather.description}</li>
-                <li className="humidity">Humidity:{weather.humidity} %</li>
-                <li className="wind">Wind:{weather.wind}</li>
-                <li className="preasure">Preasure:{weather.preasure}</li>
+                <li className="text-capitalize"> {weather.description}</li>
+                <li className="humidity">Humidity: {weather.humidity} %</li>
+                <li className="wind">Wind: {Math.round(weather.wind)}</li>
+                <li className="preasure">Pressure: {weather.pressure}</li>
               </ul>
             </div>
             <div className="col-4">
               <ul className="box2">
                 <img
-                  src={` http://openweathermap.org/img/wn/10d@2x.png`}
-                  alt="Sunny"
+                  src={weather.iconUrl}
+                  alt={weather.description}
                 ></img>
                 <li className="temperature">
                   {Math.round(weather.temperature)}

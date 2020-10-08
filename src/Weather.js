@@ -11,7 +11,7 @@ export default function Weather(props) {
   function handleResponse(response) {
     console.log(response.data);
     setWeather({
-      ready: true,
+      
       temperature: response.data.main.temp,
       description: response.data.weather[0].description,
       pressure: response.data.main.pressure,

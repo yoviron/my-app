@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
+import WeatherIcon from "./WeatherIcon";
 import FormatDate from "./FormatDate";
 
 export default function Weather(props) {
-  
-  const [city, setCity] =useState(props.city);
-  const [weather, setWeather] = useState({ready:false});
+  const [city, setCity] = useState(props.city);
+  const [weather, setWeather] = useState({ ready: false });
 
   function handleResponse(response) {
     console.log(response.data);
@@ -18,20 +18,17 @@ export default function Weather(props) {
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
       
+     icon: response.data.weather[0].icon,
       city: response.data.name,
-      date: new Date(response.data.dt * 1000),
-      iconUrl: " http://openweathermap.org/img/wn/10d@2x.png",
+      date: new Date(response.data.dt * 1000)
     });
   }
-
     function search() {
       const apiKey = "3e050f75e6d0f064cfedf4c3fb91df60";
 
       let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&apiKey=${apiKey}&units=metric`;
       axios.get(apiUrl).then(handleResponse);
-
-    } 
-
+    }
 
     function handleSubmit(event) {
       event.preventDefault();
@@ -39,111 +36,111 @@ export default function Weather(props) {
     }
     function handleCityChange(event) {
       setCity(event.target.value);
-
     }
-    
-    
+
+    if (weather.ready) {
+      return (
+        <div className="weather">
+          <FormatDate date={weather.date} />
+
+          <form onSubmit={handleSubmit}>
+            <div className="row">
+              <div className="col-9">
+                <input
+                  type="search"
+                  placeholder="Enter a city"
+                  className="form-control"
+                  onChange={handleCityChange}
+                />
+              </div>
+              <div className="col-3">
+                <input
+                  className="btn btn-primary"
+                  type="submit"
+                  value="Search"
+                />
+              </div>
+            </div>
+          </form>
+
+          <main className="condition">
+            <div className="row">
+              <div className="col-4">
+                <ul className="left">
+                  <li className="city">{weather.city}</li>
+                  <li className="text-capitalize"> {weather.description}</li>
+                  <li className="humidity">Humidity: {weather.humidity} %</li>
+                  <li className="wind">Wind: {Math.round(weather.wind)}</li>
+                  <li className="preasure">Pressure: {weather.pressure}</li>
+                </ul>
+              </div>
+              <div className="col-4">
+                <ul className="box2">
+                  <div className="icon">
+                    <WeatherIcon code={weather.icon} />
+                  </div>
+
+                  <li className="temperature">
+                    {Math.round(weather.temperature)}
+                    <span className="units">°C | F</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="col-4">
+                <ul className="forecast">
+                  <h4>3-hour forecast</h4>
+                  <li>
+                    9:00{" "}
+                    <span className="forecast-icon">
+                      <WeatherIcon code={weather.icon} />
+                    </span>
+                    15°
+                  </li>
+                  <li>
+                    12:00{" "}
+                    <span className="forecast-icon">
+                      <WeatherIcon code={weather.icon} />
+                    </span>
+                    15°
+                  </li>
+                  <li>
+                    15:00{" "}
+                    <span className="forecast-icon">
+                      <WeatherIcon code={weather.icon} />
+                    </span>
+                    15°
+                  </li>
+                  <li>
+                    18:00{" "}
+                    <span className="forecast-icon">
+                      <WeatherIcon code={weather.icon} />
+                    </span>
+                    15°
+                  </li>
+                  <li>
+                    21:00{" "}
+                    <span className="forecast-icon">
+                      <WeatherIcon code={weather.icon} />
+                    </span>
+                    15°
+                  </li>
+                  <li>
+                    24:00{" "}
+                    <span className="forecast-icon">
+                      <WeatherIcon code={weather.icon} />
+                    </span>
+                    15°
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </main>
+        </div>
+      );
+    } else {
+      search();
+
+      return "Loading";
+    }
   
-  if (weather.ready) {
-    return (
-      <div className="weather">
-        <FormatDate date={weather.date}/>
-
-        <form onSubmit ={handleSubmit}>
-          <div className="row">
-            <div className="col-9">
-              <input
-                type="search"
-                placeholder="Enter a city"
-                className="form-control"
-                onChange={handleCityChange}
-              />
-            </div>
-            <div className="col-3">
-              <input className="btn btn-primary" type="submit" value="Search" />
-            </div>
-          </div>
-        </form>
-
-        <main className="condition">
-          <div className="row">
-            <div className="col-4">
-              <ul className="left">
-                <li className="city">{weather.city}</li>
-                <li className="text-capitalize"> {weather.description}</li>
-                <li className="humidity">Humidity: {weather.humidity} %</li>
-                <li className="wind">Wind: {Math.round(weather.wind)}</li>
-                <li className="preasure">Pressure: {weather.pressure}</li>
-              </ul>
-            </div>
-            <div className="col-4">
-              <ul className="box2">
-                <img
-                  src={weather.iconUrl}
-                  alt={weather.description}
-                ></img>
-                <li className="temperature">
-                  {Math.round(weather.temperature)}
-                  <span className="units">°C | F</span>
-                </li>
-              </ul>
-            </div>
-            <div className="col-4">
-              <ul className="forecast">
-                <h4>3-hour forecast</h4>
-                <li>
-                  9:00{" "}
-                  <img
-                    src={` http://openweathermap.org/img/wn/10d@2x.png`}
-                    alt="Sunny"
-                  />{" "}
-                  15°
-                </li>
-                <li>
-                  12:00{" "}
-                  <img
-                    src={` http://openweathermap.org/img/wn/10d@2x.png`}
-                    alt="Sunny"
-                  />{" "}
-                  15°
-                </li>
-                <li>
-                  15:00{" "}
-                  <img
-                    src={` http://openweathermap.org/img/wn/10d@2x.png`}
-                    alt="Sunny"
-                  />{" "}
-                  18°
-                </li>
-                <li>
-                  16:00{" "}
-                  <img
-                    src={` http://openweathermap.org/img/wn/10d@2x.png`}
-                    alt="Sunny"
-                  />{" "}
-                  20°
-                </li>
-                <li>
-                  19:00{" "}
-                  <img
-                    src={` http://openweathermap.org/img/wn/10d@2x.png`}
-                    alt="Sunny"
-                  />{" "}
-                   17°
-                </li>
-                <li>
-                  22:00 <img src={` http://openweathermap.org/img/wn/10d@2x.png`}
-                  alt="Sunny"  />  18°
-                </li>
-              </ul>
-            </div>
-          </div>
-        </main>
-      </div>
-    );
-  } else {
-    search();
-    
-    return "Loading";
-  }
 }

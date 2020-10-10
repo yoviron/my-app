@@ -10,7 +10,7 @@ div.container {
     background-color: lightskyblue;
     flex-wrap: wrap;
     padding: 16px;
-    margin: 30px auto;
+    margin: 0 auto;
     max-width: 800px;
     border: 1px solid gray;
     border-radius: 4px;
@@ -37,7 +37,7 @@ main.condition {
 }
 
 .city,.text-capitalize,.humidity,.wind {
-    padding-bottom: 35px;
+    padding-bottom: 0;
 }
 
 
@@ -67,23 +67,35 @@ ul.box2 {
     margin-bottom: 25px;
 }
 ul.left {
-    margin-top: 20px;
+   
     text-align: left;
     padding-bottom: 0;
     margin-left: 30px;
     padding-inline-start: 0;
     
 }
-.forecast  img {
-    padding-bottom: 0;
+li {
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+}
+.icon {
+    margin-bottom: 50px;
+    padding-top: 60px;
+}
+.forecast  canvas {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 19px;
+    height: 19px;
     
     
     
     
     
 }
+
 .forecast li {
-    padding: 0;
+    padding: 15px;
     margin: 0;
 }
 

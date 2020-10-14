@@ -37,6 +37,7 @@ main.condition {
     
 }
 
+
 .city,.text-capitalize,.humidity,.wind {
     padding-bottom: 0;
 }
@@ -83,22 +84,7 @@ li {
     margin-bottom: 50px;
     padding-top: 60px;
 }
-.forecast  canvas {
-    margin-left: 20px;
-    margin-right: 20px;
-    width: 19px;
-    height: 19px;
-    
-    
-    
-    
-    
-}
 
-.forecast li {
-    padding: 15px;
-    margin: 0;
-}
 
 
 p {

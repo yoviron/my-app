@@ -11,7 +11,7 @@ export default function WeatherForecast(props) {
     setForecast(response.data);
     setLoaded(true);
   }
-  if (loaded) {
+  if (loaded && props.city=== forecast.city.name) {
     return (
       <div className="forecast">
         <div className="hourly">

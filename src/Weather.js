@@ -62,10 +62,10 @@ export default function Weather(props) {
         </form>
 
         <main className="condition">
+          <h3 className="city">{weather.city}</h3>
           <div className="row">
             <div className="col-4">
               <ul className="left">
-                <li className="city">{weather.city}</li>
                 <li className="text-capitalize"> {weather.description}</li>
                 <li className="humidity">Humidity: {weather.humidity} %</li>
                 <li className="wind">Wind: {Math.round(weather.wind)}</li>

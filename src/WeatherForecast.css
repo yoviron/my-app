@@ -12,9 +12,9 @@ span.time,
 }
 
 div.forecast {
-  padding-top: 15px;
+  padding-top: 10px;
   text-align: center;
 }
 .hourly {
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }

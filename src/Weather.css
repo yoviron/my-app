@@ -21,21 +21,22 @@ h2 {
   font-weight: normal;
 }
 h4 {
-  margin-top: 25px;
+  
 
   text-align: center;
 }
 .city {
   text-align: center;
-  font-size: 50px;
+  font-size: 37px;
   margin-top: 15px;
+  padding-right: 0;
 }
 
 main.condition {
   margin: 0;
 }
 
-.city,
+
 .text-capitalize,
 .humidity,
 .wind {
@@ -58,7 +59,9 @@ li {
   list-style: none;
 }
 ul.box2 {
-  margin-top: 100px;
+  
+  text-align: center;
+  padding-left: 0;
 }
 .condition.box2 img {
   margin-bottom: 25px;
@@ -68,6 +71,7 @@ ul.left {
   padding-bottom: 0;
   margin-left: 30px;
   padding-inline-start: 0;
+  padding-top: 15px;
 }
 li {
   margin-bottom: 50px;

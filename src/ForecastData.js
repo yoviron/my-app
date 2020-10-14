@@ -3,10 +3,20 @@ import React from "react";
 import WeatherIcon from "./WeatherIcon";
 
 export default function ForecastData(props) {
+    function hours(){
+        let date= new Date(props.data.dt * 1000);
+         let hours= date.getHours() ;
+         if(hours<10) {
+             hours=`0${hours}`
+            }
+            return `${hours}:00`
+
+    }
+
   return (
     <div>
       <span className="time">
-        {new Date(props.data.dt * 1000).getHours()}:00
+        {hours()}
         
       </span>
 

@@ -1,20 +1,20 @@
- .forecast canvas {
+.forecast canvas {
   margin-left: 20px;
   margin-right: 20px;
 
   height: 32px;
   width: 32px;
-  position: inherit;
 }
-span.time,.forecast-temp{
-    top: -10px;
-    position: relative;
+span.time,
+.forecast-temp {
+  top: -10px;
+  position: relative;
 }
 
 div.forecast {
-  padding: 15px;
-  margin: 0;
+  padding-top: 15px;
   text-align: center;
-
-  
+}
+.hourly {
+  margin-bottom: 16px;
 }

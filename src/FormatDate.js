@@ -5,8 +5,8 @@ export default function FormatDate (props) {
     let months = ["January", "February","March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     let day= days[props.date.getDay()];
     let hours =props.date.getHours();
-    if(hours<10) {
-        hours= `0${hours}`;
+    if(hours<10){
+        hours=`${hours}`;
     }
     let minutes= props.date.getMinutes();
     if(minutes<10) {

@@ -7,19 +7,14 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-       
-          <div>
-            <Weather city="Atlanta" />
-          </div>
-        
- 
-     
+        <div>
+          <Weather city="Atlanta" />
+        </div>
 
-      <p>
-        Coded  by Dani Miller and is
-        <a href="https://github.com/yoviron/my-app.git"> open-source</a>
-        
-      </p>
+        <p>
+          Coded by Dani Miller and is
+          <a href="https://github.com/yoviron/my-app.git"> open-source</a>
+        </p>
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ function App() {
 
         <p>
           Coded by Dani Miller and is
-          <a href="https://github.com/yoviron/my-app.git"> open-source</a>
+          <a href="https://github.com/yoviron/my-app.git" target="_blank" rel="noopener noreferrer"> open-source</a>
         </p>
       </div>
     </div>

@@ -14,7 +14,7 @@ export default function ForecastData(props) {
 
   if (props.unit === "celsius") {
     return (
-      <div className="col-4">
+      <div>
         <span className="time">{hours()}</span>
 
         <WeatherIcon code={props.data.weather[0].icon} />
@@ -30,7 +30,7 @@ export default function ForecastData(props) {
 
         <WeatherIcon code={props.data.weather[0].icon} />
         <span className="forecast-temp">
-          {Math.round(props.data.main.temp) * 9/ 5 + 32}°
+          {Math.round((props.data.main.temp * 9)/ 5 + 32)}°
         </span>
       </div>
     );

@@ -15,22 +15,22 @@ export default function WeatherForecast(props) {
     return (
       <div className="forecast">
         <div className="hourly">
-        <ForecastData data={forecast.list[0]}/>
+        <ForecastData data={forecast.list[0]} unit= {props.unit}/>
         </div>
         <div className="hourly">
-        <ForecastData data={forecast.list[1]}/>
+        <ForecastData data={forecast.list[1]} unit={props.unit}/>
         </div>
         <div className="hourly">
-        <ForecastData data={forecast.list[2]}/>
+        <ForecastData data={forecast.list[2]} unit={props.unit}/>
         </div>
         <div className="hourly">
-        <ForecastData data={forecast.list[3]}/>
+        <ForecastData data={forecast.list[3]} unit={props.unit}/>
         </div>
         <div className="hourly">
-        <ForecastData data={forecast.list[4]}/>
+        <ForecastData data={forecast.list[4]} unit={props.unit}/>
         </div>
         <div className="hourly">
-        <ForecastData data={forecast.list[5]}/>
+        <ForecastData data={forecast.list[5]} unit={props.unit}/>
         </div>
         
        

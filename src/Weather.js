@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
-import WeatherIcon from "./WeatherIcon";
+
 import FormatDate from "./FormatDate";
-import TemperatureUnit from "./TemperatureUnit";
-import WeatherForecast from "./WeatherForecast";
+import CityCondition from"./CityCondition";
 
 export default function Weather(props) {
   const [city, setCity] = useState(props.city);
   const [weather, setWeather] = useState({ ready: false });
+  const [unit, setUnit] = useState("celsius");
 
   function handleResponse(response) {
     console.log(response.data);
@@ -62,32 +62,11 @@ export default function Weather(props) {
         </form>
 
         <main className="condition">
-          <h3 className="city">{weather.city}</h3>
-          <div className="row">
-            <div className="col-4">
-              <ul className="left">
-                <li className="text-capitalize"> {weather.description}</li>
-                <li className="humidity">Humidity: {weather.humidity} %</li>
-                <li className="wind">Wind: {Math.round(weather.wind)}</li>
-                <li className="preasure">Pressure: {weather.pressure}</li>
-              </ul>
-            </div>
-            <div className="col-4">
-              <ul className="box2">
-                <div className="icon">
-                  <WeatherIcon code={weather.icon} />
-                </div>
-                <div>
-                  <TemperatureUnit celsius={weather.temperature} />
-                </div>
-              </ul>
-            </div>
-            <div className="col-4">
-              <h4>3-hour forecast</h4>
-
-              <WeatherForecast city={weather.city} />
-            </div>
-          </div>
+          <CityCondition weather={weather} unit={unit} setUnit={setUnit}/>
+          
+            
+              
+            
         </main>
       </div>
     );

@@ -15,6 +15,7 @@ div.forecast {
   padding-top: 10px;
   text-align: center;
 }
-.hourly {
+.hourly.col-4 {
   margin-bottom: 8px;
+  margin-right: 0;
 }

@@ -9,6 +9,10 @@ span.time,
 .forecast-temp {
   top: -10px;
   position: relative;
+  
+}
+span.time {
+  font-weight: bold;
 }
 
 div.forecast {

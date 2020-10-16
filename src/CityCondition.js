@@ -14,8 +14,8 @@ export default function CityCondition(props) {
               <ul className="left">
                 <li className="text-capitalize"> {props.weather.description}</li>
                 <li className="humidity">Humidity: {props.weather.humidity} %</li>
-                <li className="wind">Wind: {Math.round(props.weather.wind)}</li>
-                <li className="preasure">Pressure: {props.weather.pressure}</li>
+                <li className="wind">Wind: {Math.round(props.weather.wind)} m/s</li>
+                <li className="preasure">Pressure: {props.weather.pressure} hPa</li>
               </ul>
             </div>
             <div className="col-4">
@@ -29,7 +29,7 @@ export default function CityCondition(props) {
               </ul>
             </div> 
             <div className="col-4">
-              <h4>3-hour forecast</h4>
+              <h4>3-Hour Forecast</h4>
 
               <WeatherForecast city={props.weather.city} unit={props.unit} />
             

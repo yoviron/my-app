@@ -22,21 +22,17 @@ h2 {
 }
 
 h4 {
-  
-
   text-align: center;
 }
 .city {
   text-align: center;
   font-size: 37px;
   margin-top: 15px;
-  
 }
 
 main.condition {
   margin: 0;
 }
-
 
 .text-capitalize,
 .humidity,
@@ -46,7 +42,6 @@ main.condition {
 
 .temperature {
   font-size: 55px;
-  
 }
 .units {
   font-size: 15px;
@@ -61,7 +56,6 @@ li {
   list-style: none;
 }
 ul.box2 {
-  
   text-align: center;
   padding-left: 0;
 }
